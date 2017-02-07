@@ -1,0 +1,13 @@
+{
+  "name": "ham.js",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "express": "~4.14.0"
+  }
+}
