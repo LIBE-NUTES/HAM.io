@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HAM.js</title>
+    <title>HAM.io</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1>HAM.js</h1>
+    <div class="device">
+      <h1>HAM.io</h1>
+      <div>
+        <h3>Device</h3>
+        <h5>Name: {{ name }}</h5>
+        <h5>Rssi: {{ rssi }}</h5>
+      </div>
+      <div>
+        <h3>Measurements:</h3>
+        <ul>
+          <li v-for="measurement in measurements">
+            {{ measurement }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="/vue/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/socket.js"></script>
   </body>
 </html>
