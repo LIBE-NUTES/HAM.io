@@ -49,7 +49,8 @@ ble.getMeasurements = function(peripheral, callback) {
     console.log('Buffer ' + data);
     var uuidCode = '0x' + characteristic.uuid;
     parser.parse(uuidCode, data, function (err, result) {
-      callback(result.tempC);
+      console.log(result);
+      callback(result.tempC + "°C");
     });
   }
 }

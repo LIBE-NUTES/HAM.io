@@ -1,4 +1,13 @@
-body {
-  padding: 50px;
-  font: 15px Helvetica;
+html, body {
+  font-size: 0.5em;
+  padding-top: 25px;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+li {
+  font-size: 15px;
 }

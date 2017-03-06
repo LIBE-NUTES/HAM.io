@@ -6,8 +6,10 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "ble-packet": "^0.6.0",
     "express": "~4.14.0",
     "noble": "^1.7.0",
+    "skeleton-css": "^2.0.4",
     "socket.io": "^1.7.2",
     "vue": "^2.1.10"
   }

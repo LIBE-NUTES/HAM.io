@@ -19,7 +19,9 @@ ble.getPeripheral(function(peripheral) {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+// front-end dependencies
 app.use('/vue', express.static(__dirname + '/node_modules/vue/dist/'));
+app.use('/skeleton', express.static(__dirname + '/node_modules/skeleton-css/css/'));
 
 app.use('/', require('./routes/index'));
 

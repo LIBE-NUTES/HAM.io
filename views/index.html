@@ -2,23 +2,29 @@
 <html>
   <head>
     <title>HAM.io</title>
+    <link rel="stylesheet" href="/skeleton/normalize.css" />
+    <link rel="stylesheet" href="/skeleton/skeleton.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <div class="device">
-      <h1>HAM.io</h1>
-      <div>
-        <h3>Device</h3>
-        <h5>Name: {{ name }}</h5>
-        <h5>Rssi: {{ rssi }}</h5>
-      </div>
-      <div>
-        <h3>Measurements:</h3>
-        <ul>
-          <li v-for="measurement in measurements">
-            {{ measurement }}
-          </li>
-        </ul>
+    <div class="container">
+      <header>
+        <h1>HAM.io</h1>
+      </header>
+      <div class="row">
+        <section class="one-half column">
+          <h3>Device</h3>
+          <h5>Name: {{ name }}</h5>
+          <h5>Rssi: {{ rssi }}</h5>
+        </section>
+        <section class="one-half column">
+          <h3>Measurements:</h3>
+          <ul>
+            <li v-for="measurement in measurements">
+              {{ measurement }}
+            </li>
+          </ul>
+        </section>
       </div>
     </div>
     <script src="/vue/vue.js"></script>

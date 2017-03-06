@@ -1,7 +1,6 @@
 var vue = new Vue({
-  el: '.device',
+  el: '.container',
   data: {
-    connected: false,
     name: '',
     rssi: '',
     measurements: []
