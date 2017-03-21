@@ -16,6 +16,7 @@ ble.getPeripheral(function(peripheral) {
   ble.getMeasurements(peripheral, function(measurement) {
     io.emit('measurement', measurement);
   });
+  // ble.getInfo(peripheral);
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
