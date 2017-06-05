@@ -27,6 +27,14 @@ ble.getPeripheral = function(callback) {
   }
 }
 
+ble.updateRssi = function(peripheral, time, callback) {
+  setInterval(function() {
+    peripheral.updateRssi(function(error, rssi) {
+      callback(rssi);
+    });
+  }, time);
+}
+
 ble.getMeasurements = function(peripheral, callback) {
   peripheral.connect(function(error) {
     // console.log('Device Connected');

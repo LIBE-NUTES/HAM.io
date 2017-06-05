@@ -12,6 +12,10 @@ ble.start();
 ble.getPeripheral(function(peripheral) {
   io.emit('name', peripheral.advertisement.localName);
   io.emit('rssi', peripheral.rssi);
+  ble.updateRssi(peripheral, 5000, function(rssi) {
+    // console.log('rssi updated');
+    io.emit('rssi', rssi);
+  });
 
   ble.getMeasurements(peripheral, function(measurement) {
     io.emit('measurement', measurement);
