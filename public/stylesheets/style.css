@@ -11,3 +11,7 @@ header {
 li {
   font-size: 15px;
 }
+
+.device-information {
+  padding-top: 25px;
+}

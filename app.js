@@ -17,10 +17,15 @@ ble.getPeripheral(function(peripheral) {
     io.emit('rssi', rssi);
   });
 
-  ble.getMeasurements(peripheral, function(measurement) {
-    io.emit('measurement', measurement);
+  ble.getInfoDevice(peripheral, function(info) {
+    var key = Object.keys(info)[0];
+    io.emit(key, info[key]);
   });
-  // ble.getInfo(peripheral);
+
+  // ble.getMeasurements(peripheral, function(measurement) {
+  //   io.emit('measurement', measurement);
+  // });
+  // ble.logInfo(peripheral);
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
