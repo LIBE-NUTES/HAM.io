@@ -23,7 +23,9 @@ ble.getPeripheral = function(callback) {
 
   function peripheralDiscovered(peripheral) {
     // console.log('Peripheral Discovered ' + peripheral.uuid);
-    callback(peripheral);
+    peripheral.connect(function(error) {
+      callback(peripheral);
+    });
   }
 }
 
@@ -36,10 +38,7 @@ ble.updateRssi = function(peripheral, time, callback) {
 }
 
 ble.getMeasurements = function(peripheral, callback) {
-  peripheral.connect(function(error) {
-    console.log('Device Connected');
-    peripheral.discoverServices(['1809'], servicesDiscovered);
-  });
+  peripheral.discoverServices(['1809'], servicesDiscovered);
 
   function servicesDiscovered(error, services) {
     var service = services[0];
@@ -66,20 +65,15 @@ ble.getMeasurements = function(peripheral, callback) {
 }
 
 ble.getInfoDevice = function(peripheral, callback) {
-  peripheral.connect(function(error) {
-    console.log('Device Connected');
-    var serviceUUIDs = ['180f', '180a'];
-    var characteristicUUIDs = ['2a19', '2a29', '2a24', '2a25', '2a23'];
-    peripheral.discoverSomeServicesAndCharacteristics(serviceUUIDs, characteristicUUIDs, discoveredSomeInfo);
-  });
+  var serviceUUIDs = ['180f', '180a'];
+  var characteristicUUIDs = ['2a19', '2a29', '2a24', '2a25', '2a23'];
+  peripheral.discoverSomeServicesAndCharacteristics(serviceUUIDs, characteristicUUIDs, discoveredSomeInfo);
 
   function discoveredSomeInfo(error, services, characteristics) {
     characteristics.forEach(function(characteristic) {
       characteristic.read(function(error, data) {
-        console.log(characteristic.name);
         var uuidCode = '0x' + characteristic.uuid;
         parser.parse(uuidCode, data, function (err, result) {
-          console.log(result);
           callback(result);
         });
       });

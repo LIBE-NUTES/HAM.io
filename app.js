@@ -22,9 +22,12 @@ ble.getPeripheral(function(peripheral) {
     io.emit(key, info[key]);
   });
 
-  // ble.getMeasurements(peripheral, function(measurement) {
-  //   io.emit('measurement', measurement);
-  // });
+  setTimeout(function () {
+    ble.getMeasurements(peripheral, function(measurement) {
+      io.emit('measurement', measurement);
+    });
+  }, 5000);
+
   // ble.logInfo(peripheral);
 });
 
